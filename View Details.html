@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniConnect Zambia | Boarding Details</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+
+background:#1f1f1f;
+
+color:white;
+
+}
+
+
+header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 8%;
+
+background:#111;
+
+}
+
+
+.logo span{
+
+color:#9b5cff;
+
+}
+
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin-left:20px;
+
+}
+
+
+nav a:hover{
+
+color:#9b5cff;
+
+}
+
+
+
+/* Main */
+
+.details-container{
+
+width:90%;
+
+margin:40px auto;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:40px;
+
+}
+
+
+
+
+.house-gallery img{
+
+width:100%;
+
+border-radius:20px;
+
+}
+
+
+
+
+.small-images{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:10px;
+
+margin-top:15px;
+
+}
+
+
+
+.small-images img{
+
+height:90px;
+
+object-fit:cover;
+
+}
+
+
+
+
+.house-details{
+
+background:#2b2b2b;
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 0 30px rgba(155,92,255,.3);
+
+}
+
+
+
+.house-details h1{
+
+font-size:40px;
+
+}
+
+
+
+.rating{
+
+color:gold;
+
+font-size:25px;
+
+margin:15px 0;
+
+}
+
+
+
+.house-details p{
+
+margin:15px 0;
+
+}
+
+
+
+.house-details ul{
+
+margin:20px;
+
+}
+
+
+
+.house-details button{
+
+background:#9b5cff;
+
+color:white;
+
+border:none;
+
+padding:15px 35px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-size:17px;
+
+}
+
+
+
+.house-details button:hover{
+
+background:#6d28d9;
+
+transform:scale(1.05);
+
+}
+
+
+
+
+.description{
+
+width:80%;
+
+margin:40px auto;
+
+background:#2b2b2b;
+
+padding:30px;
+
+border-radius:20px;
+
+}
+
+
+
+
+footer{
+
+text-align:center;
+
+padding:30px;
+
+background:#111;
+
+}
+
+
+
+@media(max-width:900px){
+
+.details-container{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h2 class="logo">
+UniConnect <span>Zambia</span>
+</h2>
+
+
+<nav>
+
+<a href="Home.html">Home</a>
+
+<a href="Boarding.html">Boarding</a>
+
+<a href="Profile.html">Profile</a>
+
+</nav>
+
+</header>
+
+
+
+
+
+<section class="details-container">
+
+
+<div class="house-gallery">
+
+
+<img src="images/house1.jpg" id="mainImage">
+
+
+
+<div class="small-images">
+
+<img onclick="changeImage(this.src)"
+src="images/room1.jpg">
+
+
+<img onclick="changeImage(this.src)"
+src="images/livingroom.jpg">
+
+
+<img onclick="changeImage(this.src)"
+src="images/kitchen1.jpg">
+
+
+<img onclick="changeImage(this.src)"
+src="images/bathroom1.jpg">
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="house-details">
+
+
+<h1>
+Level Up Lifestyle Hub
+</h1>
+
+
+<div class="rating">
+★★★★★
+</div>
+
+
+<p>
+<i class="fa fa-location-dot"></i>
+Meanwood, Lusaka
+</p>
+
+
+<p>
+<i class="fa fa-money-bill"></i>
+K1,500/month
+</p>
+
+
+<p>
+<i class="fa fa-bed"></i>
+10 Bed Spaces Available
+</p>
+
+
+
+<h2>Facilities</h2>
+
+
+<ul>
+
+<li>WiFi</li>
+
+<li>Security</li>
+
+<li>Water</li>
+
+<li>Electricity</li>
+
+<li>Study Area</li>
+
+</ul>
+
+
+
+<button onclick="bookViewing()">
+    <a class="active" href="Book Viewing.htmlS">
+<i class="fa fa-store"></i> Book Viewing
+</a>
+
+Book Viewing
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="description">
+
+<h2>About This Boarding House</h2>
+
+
+<p>
+
+A comfortable student accommodation with modern facilities,
+secure environment and easy access to universities.
+
+</p>
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+UniConnect Zambia © 2026
+
+</footer>
+
+
+
+
+
+<script>
+
+
+function changeImage(image){
+
+document.getElementById("mainImage").src=image;
+
+}
+
+
+
+
+function bookViewing(){
+
+window.location.href="book-viewing.html";
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UNI CONNECT - Scholarships & Bursaries</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+
+body{
+
+background:linear-gradient(135deg,#141e30,#243b55);
+color:white;
+
+}
+
+
+
+/* NAV */
+
+nav{
+
+background:rgba(0,0,0,.4);
+
+padding:20px 40px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+.logo{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#ff914d;
+
+}
+
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+}
+
+
+
+
+
+/* HEADER */
+
+header{
+
+text-align:center;
+
+padding:50px 20px;
+
+}
+
+
+header h1{
+
+font-size:45px;
+
+}
+
+
+
+
+
+/* SEARCH */
+
+.search{
+
+text-align:center;
+
+padding:20px;
+
+}
+
+
+.search input,
+.search select{
+
+padding:15px;
+
+margin:10px;
+
+width:280px;
+
+border:none;
+
+border-radius:30px;
+
+}
+
+
+
+
+
+/* CARDS */
+
+
+.container{
+
+display:flex;
+
+justify-content:center;
+
+flex-wrap:wrap;
+
+gap:25px;
+
+padding:30px;
+
+}
+
+
+
+
+.card{
+
+background:white;
+
+color:black;
+
+width:320px;
+
+padding:25px;
+
+border-radius:20px;
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+}
+
+
+
+.card h2{
+
+color:#243b55;
+
+}
+
+
+
+.card p{
+
+margin:10px 0;
+
+}
+
+
+
+
+
+.badge{
+
+display:inline-block;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+color:white;
+
+background:#ff914d;
+
+}
+
+
+
+
+
+.btn{
+
+display:inline-block;
+
+padding:12px 25px;
+
+margin-top:15px;
+
+background:#ff914d;
+
+color:white;
+
+border:none;
+
+border-radius:25px;
+
+cursor:pointer;
+
+text-decoration:none;
+
+}
+
+
+
+
+
+/* UPLOAD */
+
+
+.upload{
+
+width:80%;
+
+margin:30px auto;
+
+padding:30px;
+
+text-align:center;
+
+background:rgba(255,255,255,.12);
+
+border-radius:20px;
+
+}
+
+
+
+
+footer{
+
+padding:30px;
+
+text-align:center;
+
+background:rgba(0,0,0,.4);
+
+}
+
+
+
+
+
+@media(max-width:700px){
+
+.card{
+
+width:90%;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+
+<nav>
+
+<div class="logo">
+🎓 UNI CONNECT
+</div>
+
+
+<a href="dashboard.html">
+Dashboard
+</a>
+
+
+</nav>
+
+
+
+
+
+
+<header>
+
+<h1>
+🎓 Scholarships & Bursaries
+</h1>
+
+
+<p>
+Find funding opportunities for your education.
+</p>
+
+</header>
+
+
+
+
+
+
+
+<div class="search">
+
+
+<input 
+type="text"
+id="search"
+placeholder="Search scholarship..."
+>
+
+
+<select id="type">
+
+
+<option>
+All
+</option>
+
+
+<option>
+Scholarship
+</option>
+
+
+<option>
+Bursary
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="upload">
+
+
+<h2>
+⬆️ Share Opportunity
+</h2>
+
+
+<p>
+Help students discover funding opportunities.
+</p>
+
+
+<br>
+
+
+<input type="file" id="file">
+
+
+<br>
+
+
+<button class="btn" onclick="uploadOpportunity()">
+
+Upload
+
+</button>
+
+
+<p id="message"></p>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="container" id="opportunities">
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+let opportunities=[
+
+
+{
+
+name:"Government Student Bursary",
+
+type:"Bursary",
+
+provider:"Higher Education Loans and Scholarships Board",
+
+deadline:"30 January 2026",
+
+description:"Financial support for eligible university students."
+
+},
+
+
+
+{
+
+name:"University Merit Scholarship",
+
+type:"Scholarship",
+
+provider:"UNI CONNECT Partners",
+
+deadline:"15 February 2026",
+
+description:"Award for students with excellent academic performance."
+
+},
+
+
+
+{
+
+name:"STEM Education Scholarship",
+
+type:"Scholarship",
+
+provider:"Technology Foundation",
+
+deadline:"20 March 2026",
+
+description:"Supports students studying technology and science fields."
+
+},
+
+
+
+{
+
+name:"Vulnerable Student Bursary",
+
+type:"Bursary",
+
+provider:"Education Support Programme",
+
+deadline:"10 April 2026",
+
+description:"Assistance for students needing financial support."
+
+}
+
+
+
+];
+
+
+
+
+
+
+
+let box=
+document.getElementById("opportunities");
+
+
+
+
+
+
+
+function display(data){
+
+
+box.innerHTML="";
+
+
+
+data.forEach(item=>{
+
+
+box.innerHTML+=`
+
+
+<div class="card">
+
+
+<h2>
+${item.name}
+</h2>
+
+
+<span class="badge">
+${item.type}
+</span>
+
+
+<p>
+🏢 Provider:
+${item.provider}
+</p>
+
+
+<p>
+📅 Deadline:
+${item.deadline}
+</p>
+
+
+<p>
+${item.description}
+</p>
+
+
+<button class="btn"
+onclick="apply('${item.name}')">
+
+Apply Now
+
+</button>
+
+
+<button class="btn"
+onclick="save('${item.name}')">
+
+⭐ Save
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+display(opportunities);
+
+
+
+
+
+
+
+
+// SEARCH
+
+
+document
+.getElementById("search")
+.addEventListener(
+"keyup",
+function(){
+
+
+let value=this.value.toLowerCase();
+
+
+
+let result=
+opportunities.filter(o=>
+
+o.name.toLowerCase()
+.includes(value)
+
+);
+
+
+
+display(result);
+
+
+});
+
+
+
+
+
+
+
+// FILTER
+
+
+document
+.getElementById("type")
+.addEventListener(
+"change",
+function(){
+
+
+let value=this.value;
+
+
+
+if(value==="All"){
+
+display(opportunities);
+
+}
+
+else{
+
+
+display(
+
+opportunities.filter(o=>
+
+o.type===value
+
+)
+
+);
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+
+function apply(name){
+
+alert(
+"Opening application for: "+name
+);
+
+}
+
+
+
+
+
+function save(name){
+
+alert(
+name+" saved ⭐"
+);
+
+}
+
+
+
+
+
+function uploadOpportunity(){
+
+
+let file=
+document
+.getElementById("file")
+.files[0];
+
+
+
+let message=
+document
+.getElementById("message");
+
+
+
+if(file){
+
+message.innerHTML=
+"✅ Opportunity uploaded successfully!";
+
+
+message.style.color=
+"lightgreen";
+
+
+}
+
+else{
+
+message.innerHTML=
+"Select a file first.";
+
+}
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+<footer>
+
+<h2>
+🎓 UNI CONNECT Zambia
+</h2>
+
+
+<p>
+Helping students find opportunities.
+</p>
+
+
+</footer>
+
+
+
+</body>
+
+</html>

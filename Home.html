@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniConnect Zambia | Home</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+background:#111;
+color:white;
+
+}
+
+
+
+/* NAVIGATION */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px 8%;
+
+background:rgba(10,10,10,.85);
+
+backdrop-filter:blur(15px);
+
+position:sticky;
+
+top:0;
+
+z-index:100;
+
+border-bottom:1px solid #333;
+
+}
+
+
+.logo{
+
+font-size:30px;
+
+font-weight:bold;
+
+}
+
+
+.logo span{
+
+color:#c084fc;
+
+text-shadow:0 0 15px #a855f7;
+
+}
+
+
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin:0 12px;
+
+transition:.3s;
+
+}
+
+
+
+nav a:hover{
+
+color:#c084fc;
+
+}
+
+
+
+.login{
+
+background:#a855f7;
+
+border:none;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+/* HERO */
+
+
+.hero{
+
+
+min-height:90vh;
+
+
+display:flex;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+text-align:center;
+
+
+background:
+
+linear-gradient(
+
+rgba(0,0,0,.65),
+
+rgba(0,0,0,.9)
+
+),
+
+url("images/university-campus.jpg");
+
+
+background-size:cover;
+
+
+background-position:center;
+
+
+}
+
+
+
+.content{
+
+
+max-width:900px;
+
+
+}
+
+
+
+.badge{
+
+
+display:inline-block;
+
+
+background:rgba(255,255,255,.1);
+
+
+border:1px solid #555;
+
+
+padding:10px 25px;
+
+
+border-radius:30px;
+
+
+margin-bottom:25px;
+
+
+color:#ddd;
+
+
+}
+
+
+
+
+
+h1{
+
+
+font-size:60px;
+
+
+}
+
+
+h1 span{
+
+
+color:#c084fc;
+
+
+text-shadow:0 0 25px #a855f7;
+
+
+}
+
+
+
+
+.content p{
+
+
+font-size:21px;
+
+
+color:#ddd;
+
+
+margin:25px 0;
+
+
+line-height:1.6;
+
+
+}
+
+
+
+
+
+
+button{
+
+
+border:none;
+
+
+cursor:pointer;
+
+
+padding:15px 35px;
+
+
+border-radius:30px;
+
+
+font-size:16px;
+
+
+font-weight:bold;
+
+
+transition:.3s;
+
+
+}
+
+
+
+.primary{
+
+
+background:
+
+linear-gradient(45deg,#9333ea,#c084fc);
+
+
+color:white;
+
+
+box-shadow:0 0 25px #9333ea;
+
+
+}
+
+
+.secondary{
+
+
+background:white;
+
+
+color:#222;
+
+
+margin-left:10px;
+
+
+}
+
+
+
+button:hover{
+
+
+transform:translateY(-5px);
+
+
+}
+
+
+
+
+
+
+
+/* QUICK FEATURES */
+
+
+.features{
+
+
+display:grid;
+
+
+grid-template-columns:repeat(4,1fr);
+
+
+gap:20px;
+
+
+padding:50px 8%;
+
+
+}
+
+
+
+
+.box{
+
+
+background:
+
+rgba(255,255,255,.08);
+
+
+border:1px solid #444;
+
+
+padding:30px;
+
+
+border-radius:20px;
+
+
+text-align:center;
+
+
+backdrop-filter:blur(15px);
+
+
+transition:.3s;
+
+
+}
+
+
+
+.box:hover{
+
+
+transform:translateY(-10px);
+
+
+box-shadow:0 0 30px #a855f7;
+
+
+}
+
+
+
+.box h2{
+
+
+font-size:35px;
+
+
+}
+
+
+
+.box h3{
+
+
+color:#c084fc;
+
+
+margin:15px 0;
+
+
+}
+
+
+
+
+
+
+/* WELCOME SECTION */
+
+
+.about{
+
+
+padding:70px 10%;
+
+
+text-align:center;
+
+
+}
+
+
+
+.about h2{
+
+
+font-size:40px;
+
+
+color:#c084fc;
+
+
+}
+
+
+
+.about p{
+
+
+margin-top:20px;
+
+
+color:#ddd;
+
+
+font-size:18px;
+
+
+}
+
+
+
+
+
+
+footer{
+
+
+background:#050505;
+
+
+padding:30px;
+
+
+text-align:center;
+
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+
+nav{
+
+display:none;
+
+}
+
+
+h1{
+
+font-size:40px;
+
+}
+
+
+.features{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+
+<header>
+
+
+<div class="logo">
+
+UniConnect <span>Zambia</span>
+
+</div>
+
+
+
+<nav>
+
+<a href="Home.html">Home</a>
+
+<a href="Universities.html">Universities</a>
+
+<a href="Messages.html">Messages</a>
+
+<a href="Notes.html">Notes</a>
+
+<a href="Boarding.html">Boarding Houses</a>
+
+<a href="Profile.html">Profile</a>
+<a href="Jobs.html">Jobs</a>
+
+</nav>
+
+
+
+<button class="login"
+onclick="login()">
+
+Login
+
+</button>
+
+
+</header>
+
+
+
+
+
+
+
+
+<section class="hero">
+
+
+<div class="content">
+
+
+<div class="badge">
+
+🎓 Zambia's Student Connection Platform
+
+</div>
+
+
+
+<h1>
+
+Welcome to
+
+<span>
+
+UniConnect Zambia
+
+</span>
+
+</h1>
+
+
+
+<p>
+
+Connect. Apply. Share. Learn.
+
+Explore universities, find student accommodation,
+communicate with students and build your academic future.
+
+</p>
+
+
+
+<button class="primary"
+onclick="goUniversities()">
+
+Explore Universities
+
+</button>
+
+
+
+<button class="secondary"
+onclick="goBoarding()">
+
+Find Boarding Houses
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="features">
+
+
+<div class="box">
+
+<h2>🎓</h2>
+
+<h3>Universities</h3>
+
+<p>
+Find institutions and apply easily.
+</p>
+
+</div>
+
+
+
+
+<div class="box">
+
+<h2>🏠</h2>
+
+<h3>Accommodation</h3>
+
+<p>
+Find verified student housing.
+</p>
+
+</div>
+
+
+
+
+
+<div class="box">
+
+<h2>📚</h2>
+
+<h3>Notes</h3>
+
+<p>
+Share and access study materials.
+</p>
+
+</div>
+
+
+
+
+
+<div class="box">
+
+<h2>💬</h2>
+
+<h3>Community</h3>
+
+<p>
+Chat with fellow students.
+</p>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section class="about">
+
+
+<h2>
+
+Everything Students Need
+
+</h2>
+
+
+<p>
+
+UniConnect Zambia brings universities,
+accommodation, student communication,
+learning resources and opportunities together
+in one platform.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+
+<h2>
+UniConnect Zambia
+</h2>
+
+
+<p>
+Connecting University Students Across Zambia
+</p>
+
+
+<p>
+© 2026 UniConnect Zambia
+</p>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+function goUniversities(){
+
+window.location.href="universities.html";
+
+}
+
+
+
+function goBoarding(){
+
+window.location.href="boarding.html";
+
+}
+
+
+
+function login(){
+
+alert(
+
+"Login system coming soon"
+
+);
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>

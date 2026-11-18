@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniConnect Zambia | Messages</title>
+
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    background:#2b2b2b;
+    color:white;
+    min-height:100vh;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:#171717;
+    padding:20px 8%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border-bottom:1px solid #444;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#c084fc;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:10px;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#c084fc;
+}
+
+nav a.active{
+    color:#c084fc;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    width:92%;
+    max-width:1250px;
+
+    margin:30px auto;
+
+    display:grid;
+
+    grid-template-columns:300px 1fr 280px;
+
+    gap:20px;
+
+    min-height:650px;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+
+    background:
+    rgba(255,255,255,.07);
+
+    border:1px solid #555;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    backdrop-filter:blur(15px);
+}
+
+.sidebar h2{
+    color:#e9d5ff;
+    margin-bottom:18px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search{
+
+    width:100%;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    border:1px solid #555;
+
+    background:#333;
+
+    color:white;
+
+    outline:none;
+
+    margin-bottom:20px;
+}
+
+.search:focus{
+    border-color:#a855f7;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:13px;
+
+    border-radius:14px;
+
+    margin-bottom:8px;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.contact:hover{
+    background:#3b3540;
+}
+
+.contact.active{
+    background:#4a3858;
+    border-left:3px solid #a855f7;
+}
+
+
+/* =========================
+   AVATAR
+========================= */
+
+.avatar{
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    background:#a855f7;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:bold;
+
+    flex-shrink:0;
+}
+
+
+/* =========================
+   CONTACT INFO
+========================= */
+
+.contact-info{
+    flex:1;
+}
+
+.contact-info h4{
+    font-size:14px;
+}
+
+.contact-info p{
+    color:#999;
+
+    font-size:12px;
+
+    margin-top:3px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+
+/* =========================
+   ONLINE
+========================= */
+
+.online{
+
+    width:9px;
+    height:9px;
+
+    background:#4ade80;
+
+    border-radius:50%;
+}
+
+
+/* =========================
+   CHAT
+========================= */
+
+.chat{
+
+    background:#202020;
+
+    border:1px solid #555;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+
+/* =========================
+   CHAT HEADER
+========================= */
+
+.chat-header{
+
+    padding:18px 22px;
+
+    background:#292929;
+
+    border-bottom:1px solid #444;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+
+/* Make person clickable */
+
+.person-button{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    padding:0;
+
+    cursor:pointer;
+
+    text-align:left;
+}
+
+.person-button:hover h3{
+
+    color:#c084fc;
+}
+
+
+.chat-header h3{
+    font-size:16px;
+}
+
+.chat-header p{
+    color:#8ee6ad;
+    font-size:12px;
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+.messages{
+
+    flex:1;
+
+    padding:25px;
+
+    overflow-y:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+
+    max-width:70%;
+
+    padding:12px 15px;
+
+    border-radius:18px;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    position:relative;
+}
+
+.received{
+
+    align-self:flex-start;
+
+    background:#363636;
+
+    border-bottom-left-radius:5px;
+
+    color:#ddd;
+}
+
+.sent{
+
+    align-self:flex-end;
+
+    background:#8b45d6;
+
+    border-bottom-right-radius:5px;
+
+    color:white;
+}
+
+
+/* =========================
+   MESSAGE TIME
+========================= */
+
+.message-time{
+
+    display:block;
+
+    font-size:10px;
+
+    color:#aaa;
+
+    margin-top:5px;
+}
+
+
+/* =========================
+   MESSAGE MENU
+========================= */
+
+.message-menu{
+
+    position:absolute;
+
+    top:5px;
+
+    right:6px;
+
+    background:transparent;
+
+    border:none;
+
+    color:#bbb;
+
+    cursor:pointer;
+
+    padding:2px 5px;
+
+    font-size:15px;
+}
+
+.message-menu:hover{
+
+    color:#fff;
+
+    background:rgba(0,0,0,.2);
+
+    border-radius:5px;
+}
+
+
+/* =========================
+   DELETE POPUP
+========================= */
+
+.delete-menu{
+
+    display:none;
+
+    position:absolute;
+
+    right:5px;
+
+    top:28px;
+
+    z-index:20;
+
+    background:#222;
+
+    border:1px solid #555;
+
+    border-radius:10px;
+
+    min-width:150px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.4);
+}
+
+.delete-menu button{
+
+    width:100%;
+
+    background:none;
+
+    border:none;
+
+    color:#ddd;
+
+    padding:10px;
+
+    text-align:left;
+
+    cursor:pointer;
+}
+
+.delete-menu button:hover{
+
+    background:#3a3a3a;
+
+    color:#c084fc;
+}
+
+
+/* =========================
+   MESSAGE INPUT
+========================= */
+
+.message-input{
+
+    padding:15px;
+
+    border-top:1px solid #444;
+
+    display:flex;
+
+    gap:10px;
+
+    background:#292929;
+}
+
+.message-input input{
+
+    flex:1;
+
+    padding:13px 17px;
+
+    background:#333;
+
+    color:white;
+
+    border:1px solid #555;
+
+    border-radius:25px;
+
+    outline:none;
+}
+
+.message-input input:focus{
+
+    border-color:#a855f7;
+}
+
+.send-button{
+
+    width:48px;
+    height:48px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#a855f7;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:18px;
+}
+
+.send-button:hover{
+
+    background:#9333ea;
+}
+
+
+/* =========================
+   RIGHT SIDEBAR
+========================= */
+
+.right-sidebar{
+
+    background:
+    rgba(255,255,255,.07);
+
+    border:1px solid #555;
+
+    border-radius:20px;
+
+    padding:22px;
+
+    text-align:center;
+
+    backdrop-filter:blur(15px);
+}
+
+.right-sidebar h2{
+
+    color:#e9d5ff;
+
+    margin-bottom:10px;
+}
+
+.right-sidebar p{
+
+    color:#aaa;
+
+    font-size:13px;
+
+    line-height:1.5;
+
+    margin-bottom:20px;
+}
+
+
+/* =========================
+   QR
+========================= */
+
+.qr-box{
+
+    background:white;
+
+    width:170px;
+
+    height:170px;
+
+    margin:20px auto;
+
+    border-radius:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#222;
+
+    font-size:65px;
+}
+
+.qr-button{
+
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:25px;
+
+    background:#a855f7;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.qr-button:hover{
+
+    background:#9333ea;
+}
+
+
+/* =========================
+   MY QR
+========================= */
+
+.my-qr{
+
+    margin-top:25px;
+
+    padding-top:20px;
+
+    border-top:1px solid #555;
+}
+
+.my-qr h3{
+
+    color:#d8b4fe;
+
+    margin-bottom:10px;
+}
+
+
+/* =========================
+   PROFILE MODAL
+========================= */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.75);
+
+    z-index:1000;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+
+/* =========================
+   PROFILE BOX
+========================= */
+
+.profile-box{
+
+    width:100%;
+
+    max-width:430px;
+
+    background:#292929;
+
+    border:1px solid #555;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.5);
+}
+
+
+/* =========================
+   PROFILE AVATAR
+========================= */
+
+.profile-avatar{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    background:#a855f7;
+
+    margin:0 auto 15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:35px;
+
+    font-weight:bold;
+}
+
+
+.profile-box h2{
+
+    color:#e9d5ff;
+
+    margin-bottom:5px;
+}
+
+
+.profile-status{
+
+    color:#8ee6ad;
+
+    font-size:13px;
+
+    margin-bottom:20px;
+}
+
+
+/* =========================
+   PROFILE INFORMATION
+========================= */
+
+.info{
+
+    text-align:left;
+
+    background:#333;
+
+    border-radius:15px;
+
+    padding:18px;
+
+    margin-bottom:20px;
+}
+
+
+.info-row{
+
+    padding:9px 0;
+
+    border-bottom:1px solid #4b4b4b;
+
+}
+
+
+.info-row:last-child{
+
+    border-bottom:none;
+
+}
+
+
+.info-row strong{
+
+    color:#c084fc;
+}
+
+
+.info-row span{
+
+    color:#ddd;
+
+    float:right;
+
+}
+
+
+/* =========================
+   CLOSE
+========================= */
+
+.close-button{
+
+    background:#444;
+
+    width:100%;
+
+    margin-top:5px;
+}
+
+.close-button:hover{
+
+    background:#555;
+}
+
+
+/* =========================
+   SCANNER MODAL
+========================= */
+
+.scanner-box{
+
+    width:100%;
+
+    max-width:430px;
+
+    background:#292929;
+
+    border:1px solid #555;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+}
+
+
+.camera{
+
+    height:280px;
+
+    background:#111;
+
+    border:2px solid #a855f7;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    margin:20px 0;
+}
+
+
+.camera-icon{
+
+    font-size:60px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    background:#111;
+
+    padding:25px;
+
+    text-align:center;
+
+    margin-top:30px;
+}
+
+footer h2{
+
+    color:#e9d5ff;
+}
+
+footer p{
+
+    color:#777;
+
+    margin-top:7px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1000px){
+
+    .main{
+
+        grid-template-columns:
+        250px 1fr;
+
+    }
+
+    .right-sidebar{
+
+        display:none;
+
+    }
+
+}
+
+
+@media(max-width:700px){
+
+    header{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+    nav a{
+
+        display:inline-block;
+
+        margin:5px;
+
+    }
+
+    .main{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .sidebar{
+
+        display:none;
+
+    }
+
+    .chat{
+
+        min-height:600px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="logo">
+
+UniConnect <span>Zambia</span>
+
+</div>
+
+
+<nav>
+
+<a href="Home.html">
+Home
+</a>
+
+<a href="Messages.html"
+class="active">
+Messages
+</a>
+
+<a href="Profile.html">
+Profile
+</a>
+
+<a href="Notes.html">
+Notes
+</a>
+
+<a href="pastpapers.html">
+Past Papers
+</a>
+
+<a href="Marketplace.html">
+Marketplace
+</a>
+
+</nav>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="main">
+
+
+<!-- =========================
+     CONTACTS
+========================= -->
+
+<aside class="sidebar">
+
+<h2>
+Messages 💬
+</h2>
+
+
+<input
+class="search"
+id="studentSearch"
+placeholder="Search students..."
+>
+
+
+<!-- CHANDA -->
+
+<div
+class="contact active"
+onclick="openChat('Chanda')">
+
+<div
+class="avatar"
+onclick="event.stopPropagation(); showProfile('Chanda')">
+
+C
+
+</div>
+
+
+<div class="contact-info">
+
+<h4>
+
+Chanda
+
+</h4>
+
+<p>
+
+Hey! How are you doing?
+
+</p>
+
+</div>
+
+<div class="online"></div>
+
+</div>
+
+
+
+<!-- BRIAN -->
+
+<div
+class="contact"
+onclick="openChat('Brian')">
+
+<div
+class="avatar"
+onclick="event.stopPropagation(); showProfile('Brian')">
+
+B
+
+</div>
+
+
+<div class="contact-info">
+
+<h4>
+
+Brian
+
+</h4>
+
+<p>
+
+Did you finish the assignment?
+
+</p>
+
+</div>
+
+<div class="online"></div>
+
+</div>
+
+
+
+<!-- MARY -->
+
+<div
+class="contact"
+onclick="openChat('Mary')">
+
+<div
+class="avatar"
+onclick="event.stopPropagation(); showProfile('Mary')">
+
+M
+
+</div>
+
+
+<div class="contact-info">
+
+<h4>
+
+Mary
+
+</h4>
+
+<p>
+
+See you tomorrow!
+
+</p>
+
+</div>
+
+</div>
+
+
+</aside>
+
+
+
+<!-- =========================
+     CHAT
+========================= -->
+
+<section class="chat">
+
+
+<!-- CHAT HEADER -->
+
+<div class="chat-header">
+
+
+<div
+class="avatar"
+id="chatAvatar"
+onclick="showProfile(
+document.getElementById('chatName').innerText
+)">
+
+C
+
+</div>
+
+
+<div>
+
+<button
+class="person-button"
+onclick="showProfile(
+document.getElementById('chatName').innerText
+)">
+
+<h3 id="chatName">
+
+Chanda
+
+</h3>
+
+<p>
+
+● Online
+
+</p>
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- MESSAGES -->
+
+<div
+class="messages"
+id="messages">
+
+
+<!-- MESSAGE 1 -->
+
+<div class="message received">
+
+Hey! How are you?
+
+<span class="message-time">
+18:42
+</span>
+
+<button
+class="message-menu"
+onclick="toggleMessageMenu(this)">
+
+⋮
+
+</button>
+
+
+<div class="delete-menu">
+
+<button onclick="deleteMessage(this)">
+
+🗑 Delete for me
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- MESSAGE 2 -->
+
+<div class="message sent">
+
+I'm good! How about you?
+
+<span class="message-time">
+18:43
+</span>
+
+<button
+class="message-menu"
+onclick="toggleMessageMenu(this)">
+
+⋮
+
+</button>
+
+
+<div class="delete-menu">
+
+<button onclick="deleteMessage(this)">
+
+🗑 Delete for me
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- MESSAGE 3 -->
+
+<div class="message received">
+
+I'm doing great. Are you studying for the networking test?
+
+<span class="message-time">
+18:44
+</span>
+
+<button
+class="message-menu"
+onclick="toggleMessageMenu(this)">
+
+⋮
+
+</button>
+
+
+<div class="delete-menu">
+
+<button onclick="deleteMessage(this)">
+
+🗑 Delete for me
+
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- MESSAGE INPUT -->
+
+<div class="message-input">
+
+<input
+id="messageInput"
+placeholder="Type a message..."
+onkeypress="handleEnter(event)"
+>
+
+
+<button
+class="send-button"
+onclick="sendMessage()">
+
+➤
+
+</button>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =========================
+     QR SIDEBAR
+========================= -->
+
+<aside class="right-sidebar">
+
+
+<h2>
+
+Connect with a Student
+
+</h2>
+
+
+<p>
+
+Scan someone's UniConnect QR code
+to quickly find them and start a chat.
+
+</p>
+
+
+<div class="qr-box">
+
+▦
+
+</div>
+
+
+<button
+class="qr-button"
+onclick="openScanner()">
+
+📷 Scan QR Code
+
+</button>
+
+
+
+<div class="my-qr">
+
+<h3>
+
+Your UniConnect QR
+
+</h3>
+
+
+<p>
+
+Let another student scan your code
+to connect with you.
+
+</p>
+
+
+<div
+class="qr-box"
+style="
+width:130px;
+height:130px;
+font-size:45px;
+">
+
+▦
+
+</div>
+
+</div>
+
+
+</aside>
+
+
+</div>
+
+
+
+<!-- =========================
+     PROFILE MODAL
+========================= -->
+
+<div
+class="modal"
+id="profileModal">
+
+
+<div class="profile-box">
+
+
+<div
+class="profile-avatar"
+id="profileAvatar">
+
+C
+
+</div>
+
+
+<h2 id="profileName">
+
+Chanda
+
+</h2>
+
+
+<p class="profile-status">
+
+● Online
+
+</p>
+
+
+<div class="info">
+
+
+<div class="info-row">
+
+<strong>
+University
+</strong>
+
+<span id="profileUniversity">
+Eden University
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<strong>
+Programme
+</strong>
+
+<span id="profileProgramme">
+BSc ICT
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<strong>
+Year
+</strong>
+
+<span id="profileYear">
+1st Year
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<strong>
+Location
+</strong>
+
+<span id="profileLocation">
+Lusaka
+</span>
+
+</div>
+
+
+<div class="info-row">
+
+<strong>
+Interests
+</strong>
+
+<span id="profileInterests">
+Technology
+</span>
+
+</div>
+
+</div>
+
+
+<button
+class="qr-button"
+onclick="startChatFromProfile()">
+
+💬 Send Message
+
+</button>
+
+
+<button
+class="qr-button close-button"
+onclick="closeProfile()">
+
+Close
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     QR SCANNER MODAL
+========================= -->
+
+<div
+class="modal"
+id="scannerModal">
+
+
+<div class="scanner-box">
+
+
+<h2>
+
+Scan QR Code 📷
+
+</h2>
+
+
+<p>
+
+Scan another student's
+UniConnect QR code.
+
+</p>
+
+
+<div class="camera">
+
+<div class="camera-icon">
+
+📷
+
+</div>
+
+<p>
+
+Camera scanner will appear here
+
+</p>
+
+</div>
+
+
+<button
+class="qr-button"
+onclick="simulateScan()">
+
+Simulate Scan
+
+</button>
+
+
+<button
+class="qr-button close-button"
+onclick="closeScanner()">
+
+Close
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<h2>
+
+UniConnect Zambia
+
+</h2>
+
+<p>
+
+Connecting Students Across Zambia
+
+</p>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   STUDENT DATA
+========================= */
+
+const students = {
+
+    Chanda:{
+        university:"Eden University",
+        programme:"BSc ICT",
+        year:"1st Year",
+        location:"Lusaka",
+        interests:"Technology"
+    },
+
+    Brian:{
+        university:"Copperbelt University",
+        programme:"Computer Science",
+        year:"2nd Year",
+        location:"Kitwe",
+        interests:"Programming"
+    },
+
+    Mary:{
+        university:"University of Zambia",
+        programme:"Information Systems",
+        year:"1st Year",
+        location:"Lusaka",
+        interests:"Web Development"
+    }
+
+};
+
+
+/* =========================
+   CURRENT STUDENT
+========================= */
+
+let currentStudent="Chanda";
+
+
+/* =========================
+   OPEN CHAT
+========================= */
+
+function openChat(name){
+
+    currentStudent=name;
+
+
+    document
+    .getElementById("chatName")
+    .innerText=name;
+
+
+    document
+    .getElementById("chatAvatar")
+    .innerText=
+    name.charAt(0).toUpperCase();
+
+
+    document
+    .querySelectorAll(".contact")
+    .forEach(function(contact){
+
+        contact.classList.remove("active");
+
+    });
+
+
+    event.currentTarget
+    .classList.add("active");
+
+}
+
+
+/* =========================
+   SHOW PROFILE
+========================= */
+
+function showProfile(name){
+
+    currentStudent=name;
+
+
+    const student=
+    students[name];
+
+
+    if(!student){
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("profileName")
+    .innerText=name;
+
+
+    document
+    .getElementById("profileAvatar")
+    .innerText=
+    name.charAt(0).toUpperCase();
+
+
+    document
+    .getElementById("profileUniversity")
+    .innerText=
+    student.university;
+
+
+    document
+    .getElementById("profileProgramme")
+    .innerText=
+    student.programme;
+
+
+    document
+    .getElementById("profileYear")
+    .innerText=
+    student.year;
+
+
+    document
+    .getElementById("profileLocation")
+    .innerText=
+    student.location;
+
+
+    document
+    .getElementById("profileInterests")
+    .innerText=
+    student.interests;
+
+
+    document
+    .getElementById("profileModal")
+    .style.display="flex";
+
+}
+
+
+/* =========================
+   CLOSE PROFILE
+========================= */
+
+function closeProfile(){
+
+    document
+    .getElementById("profileModal")
+    .style.display="none";
+
+}
+
+
+/* =========================
+   START CHAT FROM PROFILE
+========================= */
+
+function startChatFromProfile(){
+
+    closeProfile();
+
+    openChat(currentStudent);
+
+}
+
+
+/* =========================
+   MESSAGE MENU
+========================= */
+
+function toggleMessageMenu(button){
+
+    const menu=
+    button
+    .parentElement
+    .querySelector(".delete-menu");
+
+
+    document
+    .querySelectorAll(".delete-menu")
+    .forEach(function(item){
+
+        if(item !== menu){
+
+            item.style.display="none";
+
+        }
+
+    });
+
+
+    if(menu.style.display==="block"){
+
+        menu.style.display="none";
+
+    }
+
+    else{
+
+        menu.style.display="block";
+
+    }
+
+}
+
+
+/* =========================
+   DELETE MESSAGE
+========================= */
+
+function deleteMessage(button){
+
+    const message=
+    button
+    .closest(".message");
+
+
+    if(confirm("Delete this message for you?")){
+
+        message.remove();
+
+    }
+
+}
+
+
+/* =========================
+   SEND MESSAGE
+========================= */
+
+function sendMessage(){
+
+    const input=
+    document
+    .getElementById("messageInput");
+
+
+    const text=
+    input.value.trim();
+
+
+    if(text===""){
+
+        return;
+
+    }
+
+
+    const messages=
+    document
+    .getElementById("messages");
+
+
+    const message=
+    document
+    .createElement("div");
+
+
+    message.className="message sent";
+
+
+    message.innerHTML=
+
+    text
+
+    +
+
+    '<span class="message-time">'
+    +
+
+    new Date()
+    .toLocaleTimeString(
+        [],
+        {
+            hour:"2-digit",
+            minute:"2-digit"
+        }
+    )
+
+    +
+
+    '</span>'
+
+    +
+
+    '<button class="message-menu" onclick="toggleMessageMenu(this)">⋮</button>'
+
+    +
+
+    '<div class="delete-menu">'
+
+    +
+
+    '<button onclick="deleteMessage(this)">'
+
+    +
+
+    '🗑 Delete for me'
+
+    +
+
+    '</button>'
+
+    +
+
+    '</div>';
+
+
+    messages.appendChild(message);
+
+
+    input.value="";
+
+
+    messages.scrollTop=
+    messages.scrollHeight;
+
+}
+
+
+/* =========================
+   ENTER TO SEND
+========================= */
+
+function handleEnter(event){
+
+    if(event.key==="Enter"){
+
+        sendMessage();
+
+    }
+
+}
+
+
+/* =========================
+   SEARCH STUDENTS
+========================= */
+
+document
+.getElementById("studentSearch")
+.addEventListener(
+"keyup",
+function(){
+
+    let search=
+    this.value.toLowerCase();
+
+
+    document
+    .querySelectorAll(".contact")
+    .forEach(function(contact){
+
+        let name=
+        contact
+        .innerText
+        .toLowerCase();
+
+
+        if(name.includes(search)){
+
+            contact.style.display="flex";
+
+        }
+
+        else{
+
+            contact.style.display="none";
+
+        }
+
+    });
+
+});
+
+
+/* =========================
+   QR SCANNER
+========================= */
+
+function openScanner(){
+
+    document
+    .getElementById("scannerModal")
+    .style.display="flex";
+
+}
+
+
+function closeScanner(){
+
+    document
+    .getElementById("scannerModal")
+    .style.display="none";
+
+}
+
+
+/* =========================
+   DEMO QR SCAN
+========================= */
+
+function simulateScan(){
+
+    alert(
+        "QR code detected!\n\n" +
+        "Student: Brian"
+    );
+
+
+    closeScanner();
+
+
+    showProfile("Brian");
+
+}
+
+
+/* =========================
+   CLOSE MODALS WHEN
+   CLICKING OUTSIDE
+========================= */
+
+window.addEventListener(
+"click",
+function(event){
+
+    const profile=
+    document
+    .getElementById("profileModal");
+
+
+    const scanner=
+    document
+    .getElementById("scannerModal");
+
+
+    if(event.target === profile){
+
+        closeProfile();
+
+    }
+
+
+    if(event.target === scanner){
+
+        closeScanner();
+
+    }
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

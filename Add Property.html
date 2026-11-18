@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniConnect Zambia | Add Property</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+
+body{
+
+background:#1f1f1f;
+
+color:white;
+
+min-height:100vh;
+
+}
+
+
+/* HEADER */
+
+header{
+
+background:#111;
+
+padding:20px 8%;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+.logo{
+
+font-size:28px;
+
+font-weight:bold;
+
+}
+
+
+.logo span{
+
+color:#9b5cff;
+
+}
+
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin-left:20px;
+
+}
+
+
+nav a:hover{
+
+color:#9b5cff;
+
+}
+
+
+
+
+/* FORM */
+
+.container{
+
+width:90%;
+
+max-width:900px;
+
+margin:40px auto;
+
+background:#2b2b2b;
+
+padding:40px;
+
+border-radius:25px;
+
+box-shadow:0 0 30px rgba(155,92,255,.4);
+
+}
+
+
+
+h1{
+
+text-align:center;
+
+color:#c084fc;
+
+margin-bottom:30px;
+
+}
+
+
+
+.form-group{
+
+margin-bottom:20px;
+
+}
+
+
+
+label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:bold;
+
+}
+
+
+
+input,
+select,
+textarea{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+background:#3a3a3a;
+
+color:white;
+
+outline:none;
+
+}
+
+
+
+textarea{
+
+height:120px;
+
+resize:none;
+
+}
+
+
+
+
+.images{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:15px;
+
+}
+
+
+
+.image-box{
+
+background:#333;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+
+
+.image-box img{
+
+width:100%;
+
+height:150px;
+
+object-fit:cover;
+
+border-radius:10px;
+
+margin-top:10px;
+
+display:none;
+
+}
+
+
+
+button{
+
+width:100%;
+
+padding:18px;
+
+border:none;
+
+border-radius:30px;
+
+background:linear-gradient(
+45deg,
+#9b5cff,
+#2563eb
+);
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+margin-top:20px;
+
+}
+
+
+
+button:hover{
+
+transform:scale(1.03);
+
+}
+
+
+
+
+.success{
+
+display:none;
+
+background:#16a34a;
+
+padding:15px;
+
+border-radius:10px;
+
+text-align:center;
+
+margin-top:20px;
+
+}
+
+
+
+
+footer{
+
+text-align:center;
+
+background:#111;
+
+padding:25px;
+
+margin-top:40px;
+
+}
+
+
+
+
+@media(max-width:700px){
+
+.images{
+
+grid-template-columns:1fr;
+
+}
+
+
+header{
+
+flex-direction:column;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<header>
+
+
+<div class="logo">
+
+UniConnect <span>Zambia</span>
+
+</div>
+
+
+<nav>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="boarding.html">
+Boarding Houses
+</a>
+
+<a href="profile.html">
+Profile
+</a>
+
+</nav>
+
+
+</header>
+
+
+
+
+
+
+
+<div class="container">
+
+
+<h1>
+Add Boarding House Property
+</h1>
+
+
+
+<form id="propertyForm">
+
+
+
+<div class="form-group">
+
+<label>
+Boarding House Name
+</label>
+
+<input type="text"
+id="name"
+placeholder="Example: Level Up Lifestyle Hub"
+required>
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Location
+</label>
+
+<input type="text"
+id="location"
+placeholder="Example: Meanwood, Lusaka"
+required>
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Monthly Price
+</label>
+
+<input type="text"
+id="price"
+placeholder="Example: K1500/month"
+required>
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Available Rooms / Bed Spaces
+</label>
+
+<input type="number"
+id="rooms"
+placeholder="Number available"
+required>
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Facilities
+</label>
+
+<textarea id="facilities"
+placeholder="WiFi, Security, Water, Electricity">
+</textarea>
+
+</div>
+
+
+
+
+
+
+<h3>
+Property Images
+</h3>
+
+
+<div class="images">
+
+
+<div class="image-box">
+
+<input type="file"
+accept="image/*"
+onchange="preview(event,'img1')">
+
+<img id="img1">
+
+</div>
+
+
+
+<div class="image-box">
+
+<input type="file"
+accept="image/*"
+onchange="preview(event,'img2')">
+
+<img id="img2">
+
+</div>
+
+
+
+
+<div class="image-box">
+
+<input type="file"
+accept="image/*"
+onchange="preview(event,'img3')">
+
+<img id="img3">
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<button type="submit">
+
+Publish Property
+
+</button>
+
+
+<div class="success" id="success">
+
+Property Added Successfully!
+
+</div>
+
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+
+
+
+<footer>
+
+UniConnect Zambia © 2026
+
+</footer>
+
+
+
+
+
+
+
+<script>
+
+
+function preview(event,id){
+
+let image=document.getElementById(id);
+
+
+image.src=
+URL.createObjectURL(event.target.files[0]);
+
+
+image.style.display="block";
+
+}
+
+
+
+
+
+document.getElementById("propertyForm")
+.addEventListener("submit",function(e){
+
+
+e.preventDefault();
+
+
+document.getElementById("success")
+.style.display="block";
+
+
+});
+
+
+
+</script>
+
+
+
+
+
+</body>
+
+</html>

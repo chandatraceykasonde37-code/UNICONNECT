@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniConnect Zambia | Boarding Houses</title>
+
+<link rel="stylesheet" href="Boarding.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+<h2>UniConnect <span>Zambia</span></h2>
+</div>
+
+
+<nav>
+
+<a href="Home.html">
+<i class="fa fa-home"></i> Home
+</a>
+
+<a href="Universities.html">
+<i class="fa fa-school"></i> Universities
+</a>
+
+
+<a class="active" href="Boarding.html">
+<i class="fa fa-bed"></i> Boarding Houses
+</a>
+
+
+<a class="active" href="Marketplace.html">
+<i class="fa fa-store"></i> Marketplace
+</a>
+
+
+<a href="Profile.html">
+<i class="fa fa-user"></i> Profile
+</a>
+
+
+</nav>
+
+</header>
+
+
+
+
+<section class="hero">
+
+
+<h1>
+Find Your Student Home
+</h1>
+
+
+<p>
+Affordable, safe and verified accommodation near your university.
+</p>
+
+
+
+<div class="search-box">
+
+
+<input id="searchInput"
+type="text"
+placeholder="Search boarding house or location">
+
+
+
+<select id="location">
+
+<option>All Locations</option>
+<option>Lusaka</option>
+<option>Kitwe</option>
+<option>Ndola</option>
+<option>Kabwe</option>
+
+</select>
+
+
+
+<select>
+
+<option>Price Range</option>
+<option>Below K1000</option>
+<option>K1000 - K2000</option>
+<option>Above K2000</option>
+
+</select>
+
+
+<button onclick="searchHouse()">
+<i class="fa fa-search"></i>
+Search
+</button>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<section class="features">
+
+
+<div class="feature">
+
+<i class="fa fa-circle-check"></i>
+
+<h3>Verified Houses</h3>
+
+<p>
+Checked accommodation listings.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<i class="fa fa-wifi"></i>
+
+<h3>Student Facilities</h3>
+
+<p>
+WiFi, water and electricity.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<i class="fa fa-lock"></i>
+
+<h3>Safe Living</h3>
+
+<p>
+Secure student environments.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<i class="fa fa-money-bill"></i>
+
+<h3>Affordable</h3>
+
+<p>
+Find prices that fit your budget.
+</p>
+
+</div>
+
+
+</section>
+
+
+
+
+
+<h1 class="title">
+Available Boarding Houses
+</h1>
+
+
+
+
+<section class="houses">
+
+
+
+
+
+<div class="house-card">
+
+
+<img src="file_0000000019dc8243b8a78225b15a7418_1.png">
+
+
+<div class="house-info">
+
+<h2>
+Level Up Lifestyle Hub
+</h2>
+
+
+<div class="rating">
+
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star-half"></i>
+
+</div>
+
+
+<p>
+<i class="fa fa-location-dot"></i>
+Meanwood, Lusaka
+</p>
+
+
+<p>
+<i class="fa fa-money-bill"></i>
+K1,500 / Month
+</p>
+
+
+<p>
+<i class="fa fa-bed"></i>
+10 Bed Spaces Available
+</p>
+
+
+<button>
+
+<a class="active" href="View Details.html">
+<i class="fa fa-store"></i> View Details
+</a>
+</button>
+
+
+<button class="book">
+
+<a class="active" href="Book Viewing.html">
+<i class="fa fa-store"></i> Book Viewing
+</a>
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="house-card">
+
+
+<img src="file_000000003c6071f48b210f3272f96fbf.jpg">
+
+
+<div class="house-info">
+
+<h2>
+Campus View Apartments
+</h2>
+
+
+<div class="rating">
+
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+
+</div>
+
+
+<p>
+<i class="fa fa-location-dot"></i>
+Chelstone, Lusaka
+</p>
+
+
+<p>
+<i class="fa fa-money-bill"></i>
+K1,200 / Month
+</p>
+
+
+<p>
+<i class="fa fa-bed"></i>
+6 Bed Spaces Available
+</p>
+
+
+<button>
+
+<a class="active" href="View Details.html">
+<i class="fa fa-store"></i> View Details
+</a>
+</button>
+
+
+<button class="book">
+
+<a class="active" href="Book Viewing.html">
+<i class="fa fa-store"></i> Book Viewing
+</a>
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="house-card">
+
+
+<img src="Gemini_Generated_Image_xy4r6qxy4r6qxy4r.png">
+
+
+<div class="house-info">
+
+<h2>
+Student Haven Rooms
+</h2>
+
+
+<div class="rating">
+
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+<i class="fa fa-star"></i>
+
+</div>
+
+
+<p>
+<i class="fa fa-location-dot"></i>
+Kabulonga, Lusaka
+</p>
+
+
+<p>
+<i class="fa fa-money-bill"></i>
+K1,800 / Month
+</p>
+
+
+<p>
+<i class="fa fa-bed"></i>
+4 Bed Spaces Available
+</p>
+
+
+<button>
+
+<a class="active" href="View Details.html">
+<i class="fa fa-store"></i> View Details
+</a>
+</button>
+
+
+<button class="book">
+
+<a class="active" href="Book Viewing.html">
+<i class="fa fa-store"></i> Book Viewing
+</a>
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<section class="landlord">
+
+<h2>
+Are you a landlord?
+</h2>
+
+
+<p>
+List your boarding house and connect with thousands of university students.
+</p>
+
+<a class="active" href="Add Property.html">
+<i class="fa fa-store"></i> Add Property
+</a>
+
+
+
+</section>
+
+
+
+
+
+
+<footer>
+
+<h3>
+UniConnect Zambia
+</h3>
+
+
+<p>
+Connecting University Students Across Zambia
+</p>
+
+
+<p>
+© 2026 UniConnect Zambia
+</p>
+
+
+</footer>
+
+
+
+<script src="boarding.js"></script>
+
+
+</body>
+
+</html>

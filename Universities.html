@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniConnect Zambia</title>
+
+
+<style>
+
+/* ===== GLOBAL STYLE ===== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+
+background:#434242;
+color:white;
+
+}
+
+
+/* ===== NAVIGATION ===== */
+
+header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 7%;
+
+background:rgba(122, 120, 120, 0.9);
+
+position:sticky;
+
+top:0;
+
+z-index:1000;
+
+}
+
+
+
+.logo{
+
+font-size:30px;
+
+font-weight:bold;
+
+}
+
+
+
+.logo span{
+
+color:#27034a;
+
+}
+
+
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin:0 12px;
+
+font-size:16px;
+
+}
+
+
+
+nav a:hover{
+
+color:#c084fc;
+
+}
+
+
+
+.login{
+
+background:#a855f7;
+
+color:white;
+
+padding:12px 25px;
+
+border-radius:30px;
+
+border:none;
+
+}
+
+
+
+
+/* ===== HOME ===== */
+
+
+.home{
+
+
+height:90vh;
+
+
+display:flex;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+text-align:center;
+
+
+
+background:
+
+
+linear-gradient(
+
+rgba(184, 180, 180, 0.7),
+
+rgba(97, 93, 93, 0.85)
+
+),
+
+
+url("images/university-campus.jpg");
+
+
+
+background-size:cover;
+
+
+background-position:center;
+
+
+}
+
+
+
+.home h1{
+
+font-size:60px;
+
+}
+
+
+
+.home span{
+
+color:#c084fc;
+
+}
+
+
+
+.home p{
+
+font-size:22px;
+
+margin:25px auto;
+
+max-width:800px;
+
+color:#ddd;
+
+}
+
+
+
+.btn{
+
+
+padding:15px 35px;
+
+border-radius:30px;
+
+border:none;
+
+margin:10px;
+
+cursor:pointer;
+
+font-size:17px;
+
+}
+
+
+
+.primary{
+
+background:#a855f7;
+
+color:white;
+
+}
+
+
+
+.secondary{
+
+background:white;
+
+color:#222;
+
+}
+
+
+
+
+
+/* ===== GENERAL SECTIONS ===== */
+
+
+section{
+
+padding:70px 8%;
+
+}
+
+
+
+
+.title{
+
+text-align:center;
+
+font-size:40px;
+
+color:#c084fc;
+
+margin-bottom:40px;
+
+}
+
+
+
+
+.card-container{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:#242424;
+
+padding:30px;
+
+border-radius:20px;
+
+transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 30px #a855f7;
+
+}
+
+
+
+
+
+
+/* FOOTER */
+
+
+footer{
+
+background:#080808;
+
+text-align:center;
+
+padding:40px;
+
+}
+
+
+
+
+@media(max-width:900px){
+
+
+nav{
+
+display:none;
+
+}
+
+
+.home h1{
+
+font-size:40px;
+
+}
+
+
+.card-container{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<header>
+
+
+<div class="logo">
+
+UniConnect <span>Zambia</span>
+
+</div>
+
+
+
+<nav>
+
+
+<a href="Home.html">
+Home
+</a>
+
+
+<a href="Universities.html">
+Universities
+</a>
+
+
+<a href="Messages.html">
+Messages
+</a>
+
+
+<a href="Notes.html">
+Notes
+</a>
+
+
+<a href="Boarding.html">
+Boarding Houses
+</a>
+
+
+<a href="Marketplace.html">
+Marketplace
+</a>
+
+
+</nav>
+
+
+
+<button class="login">
+
+Log In
+
+</button>
+
+
+</header>
+
+
+
+
+
+
+
+<!-- HOME -->
+
+<section class="home" id="home">
+
+
+<div>
+
+
+<h1>
+
+Welcome to <span>UniConnect Zambia</span>
+
+</h1>
+
+
+<p>
+
+Connect. Apply. Share. Learn. Explore universities,
+find accommodation, share notes and build your student community.
+
+</p>
+
+
+
+
+<button class="btn primary">
+
+Join Now
+
+</button>
+
+
+
+<button class="btn secondary">
+
+Explore Universities
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- UNIVERSITIES SECTION WILL BE ADDED HERE -->
+
+
+<section id="universities">
+
+<h1 class="title">
+
+Universities
+
+</h1>
+
+
+<div class="card-container"
+id="universityList">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- BOARDING SECTION WILL BE ADDED HERE -->
+
+
+<section id="boarding">
+
+<h1 class="title">
+
+Student Accommodation
+
+</h1>
+
+
+<div class="card-container"
+id="boardingList">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- CHAT -->
+
+
+<section id="chat">
+
+
+<h1 class="title">
+
+Messages
+
+</h1>
+
+
+<div class="card">
+
+Chat system coming here.
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- NOTES -->
+
+
+<section id="notes">
+
+
+<h1 class="title">
+
+Student Notes
+
+</h1>
+
+
+<div class="card">
+
+Notes sharing system coming here.
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- MARKETPLACE -->
+
+
+<section id="Marketplace">
+
+
+<h1 class="title">
+
+Marketplace
+
+</h1>
+
+
+<div class="card">
+
+Buy and sell student items.
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<footer>
+
+
+<h2>
+UniConnect Zambia
+</h2>
+
+
+<p>
+Connecting University Students Across Zambia
+</p>
+
+
+</footer>
+
+
+
+
+<script>
+
+
+
+// ===============================
+// UNIVERSITIES DATABASE
+// ===============================
+
+
+const universities=[
+
+
+{
+id:"unza",
+name:"University of Zambia (UNZA)",
+type:"Public",
+location:"Lusaka",
+deadline:"Check latest intake",
+website:"https://www.unza.zm",
+apply:"https://www.unza.zm"
+},
+
+
+{
+id:"cbu",
+name:"Copperbelt University (CBU)",
+type:"Public",
+location:"Kitwe",
+deadline:"Check latest intake",
+website:"https://www.cbu.ac.zm",
+apply:"https://www.cbu.ac.zm"
+},
+
+
+{
+id:"eden",
+name:"Eden University",
+type:"Private",
+location:"Lusaka",
+deadline:"Check latest intake",
+website:"https://www.edenuniversity.edu.zm",
+apply:"https://www.edenuniversity.edu.zm"
+},
+
+
+{
+id:"st-eugene",
+name:"St. Eugene University",
+type:"Private",
+location:"Lusaka",
+deadline:"Check latest intake",
+website:"https://www.steugeneuniversity.edu.zm",
+apply:"https://www.steugeneuniversity.edu.zm"
+},
+
+
+{
+id:"unilus",
+name:"University of Lusaka (UNILUS)",
+type:"Private",
+location:"Lusaka",
+deadline:"Check latest intake",
+website:"https://www.unilus.ac.zm",
+apply:"https://www.unilus.ac.zm"
+},
+
+
+{
+id:"cavendish",
+name:"Cavendish University Zambia",
+type:"Private",
+location:"Lusaka",
+deadline:"Check latest intake",
+website:"https://www.cavendishza.org",
+apply:"https://www.cavendishza.org"
+},
+
+
+{
+id:"mulungushi",
+name:"Mulungushi University",
+type:"Public",
+location:"Kabwe",
+deadline:"Check latest intake",
+website:"https://www.mu.ac.zm",
+apply:"https://www.mu.ac.zm"
+},
+
+
+{
+id:"lmmu",
+name:"Levy Mwanawasa Medical University",
+type:"Public",
+location:"Lusaka",
+deadline:"Check latest intake",
+website:"https://www.lmmu.ac.zm",
+apply:"https://www.lmmu.ac.zm"
+}
+
+];
+
+
+
+
+
+
+
+// DISPLAY UNIVERSITIES
+
+
+function displayUniversities(){
+
+
+let box=document.getElementById("universityList");
+
+
+box.innerHTML="";
+
+
+universities.forEach(u=>{
+
+
+box.innerHTML+=`
+
+
+<div class="card">
+
+
+<h2>
+${u.name}
+</h2>
+
+
+<p>
+📍 ${u.location}
+</p>
+
+
+<p>
+🎓 ${u.type}
+</p>
+
+
+<p>
+📅 ${u.deadline}
+</p>
+
+
+
+<button class="btn primary"
+
+onclick="window.open('${u.website}','_blank')">
+
+Website
+
+</button>
+
+
+
+<button class="btn secondary"
+
+onclick="window.open('${u.apply}','_blank')">
+
+Apply
+
+</button>
+
+
+
+<button class="btn primary"
+
+onclick="findBoarding('${u.id}')">
+
+Find Boarding
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+// ===============================
+// BOARDING HOUSES DATABASE
+// ===============================
+
+
+
+const boardingHouses=[
+
+
+{
+
+name:"Level Up Lifestyle Hub",
+
+university:"eden",
+
+location:"Meanwood, Lusaka",
+
+price:"K1500/month",
+
+rooms:"10 Bed Spaces",
+
+features:"WiFi, Security, Water, Electricity"
+
+},
+
+
+
+{
+
+name:"UNZA Student Residence",
+
+university:"unza",
+
+location:"Great East Road, Lusaka",
+
+price:"K1200/month",
+
+rooms:"8 Bed Spaces",
+
+features:"WiFi, Security, Electricity"
+
+},
+
+
+
+{
+
+name:"Campus View Hostel",
+
+university:"cbu",
+
+location:"Kitwe",
+
+price:"K1000/month",
+
+rooms:"12 Bed Spaces",
+
+features:"WiFi, Water, Security"
+
+}
+
+
+
+];
+
+
+
+
+
+
+function displayBoarding(){
+
+
+let box=document.getElementById("boardingList");
+
+
+box.innerHTML="";
+
+
+boardingHouses.forEach(h=>{
+
+
+box.innerHTML+=`
+
+
+<div class="card">
+
+
+<h2>
+
+${h.name}
+
+</h2>
+
+
+<p>
+📍 ${h.location}
+</p>
+
+
+<p>
+💰 ${h.price}
+</p>
+
+
+<p>
+🛏 ${h.rooms}
+</p>
+
+
+<p>
+${h.features}
+</p>
+
+
+
+<button class="btn primary">
+
+View Details
+
+</button>
+
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
+
+
+
+
+
+// OPEN BOARDING BASED ON UNIVERSITY
+
+
+function findBoarding(id){
+
+
+let houses=boardingHouses.filter(
+
+house=>house.university===id
+
+);
+
+
+
+alert(
+
+houses.length+
+
+" boarding houses found"
+
+);
+
+
+}
+
+
+
+
+
+
+displayUniversities();
+
+displayBoarding();
+
+
+</script>
+
+
+
+</body>
+
+</html>

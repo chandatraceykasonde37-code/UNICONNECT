@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniConnect Zambia | Past Papers</title>
+
+
+<style>
+
+/* =========================
+   GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+
+body{
+    background:#2b2b2b;
+    color:white;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    background:#171717;
+
+    padding:20px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+
+.logo{
+    font-size:30px;
+
+    font-weight:bold;
+}
+
+
+.logo span{
+    color:#c084fc;
+}
+
+
+nav a{
+    color:white;
+
+    text-decoration:none;
+
+    margin:10px;
+
+    transition:.3s;
+}
+
+
+nav a:hover{
+    color:#c084fc;
+}
+
+
+nav a.active{
+    color:#c084fc;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+
+    padding:60px 20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #292929,
+        #3a3342
+    );
+}
+
+
+.hero h1{
+    font-size:50px;
+
+    color:#e9d5ff;
+
+    margin-bottom:10px;
+}
+
+
+.hero p{
+    color:#d4d4d4;
+
+    font-size:18px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    padding:40px 8%;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card{
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:1px solid #555;
+
+    border-radius:25px;
+
+    padding:30px;
+
+    margin-bottom:30px;
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.15);
+}
+
+
+/* =========================
+   SEARCH / FILTER
+========================= */
+
+.search-area{
+
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr 1fr 1fr;
+
+    gap:12px;
+}
+
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    margin:10px 0;
+
+    background:#333;
+
+    border:1px solid #555;
+
+    border-radius:15px;
+
+    color:white;
+
+    outline:none;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    border-color:#a855f7;
+
+}
+
+
+input::placeholder,
+textarea::placeholder{
+
+    color:#aaa;
+
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+button{
+
+    background:#a855f7;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+
+button:hover{
+
+    background:#9333ea;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =========================
+   PAPER TITLE
+========================= */
+
+.section-title{
+
+    color:#e9d5ff;
+
+    margin-bottom:25px;
+
+    font-size:30px;
+}
+
+
+/* =========================
+   PAPERS
+========================= */
+
+.papers{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+}
+
+
+/* =========================
+   PAPER CARD
+========================= */
+
+.paper-card{
+
+    background:#333;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    border:1px solid #555;
+
+    transition:.3s;
+}
+
+
+.paper-card:hover{
+
+    border-color:#a855f7;
+
+    transform:
+    translateY(-5px);
+
+    box-shadow:
+    0 10px 25px
+    rgba(168,85,247,.15);
+}
+
+
+/* =========================
+   PAPER ICON
+========================= */
+
+.paper-icon{
+
+    width:60px;
+
+    height:60px;
+
+    background:#4a3b55;
+
+    border-radius:15px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:30px;
+
+    margin-bottom:18px;
+}
+
+
+/* =========================
+   PAPER INFORMATION
+========================= */
+
+.paper-card h2{
+
+    color:#d8b4fe;
+
+    margin-bottom:12px;
+}
+
+
+.paper-card p{
+
+    color:#ccc;
+
+    margin:8px 0;
+
+    line-height:1.5;
+}
+
+
+.paper-card strong{
+
+    color:#eee;
+}
+
+
+/* =========================
+   PAPER BUTTONS
+========================= */
+
+.paper-actions{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+
+.view-btn{
+
+    background:#555;
+}
+
+
+.view-btn:hover{
+
+    background:#666;
+}
+
+
+.download-btn{
+
+    background:#a855f7;
+}
+
+
+/* =========================
+   UPLOAD SECTION
+========================= */
+
+.upload-title{
+
+    color:#e9d5ff;
+
+    margin-bottom:20px;
+}
+
+
+.upload-description{
+
+    color:#bbb;
+
+    margin-bottom:20px;
+}
+
+
+/* =========================
+   NO RESULTS
+========================= */
+
+#noResults{
+
+    display:none;
+
+    text-align:center;
+
+    padding:30px;
+
+    color:#aaa;
+
+    background:#333;
+
+    border-radius:20px;
+
+    border:1px solid #555;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    background:#111;
+
+    padding:30px;
+
+    text-align:center;
+
+    margin-top:30px;
+}
+
+
+footer h2{
+
+    margin-bottom:10px;
+
+    color:#e9d5ff;
+}
+
+
+footer p{
+
+    color:#aaa;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .papers{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .search-area{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    header{
+
+        flex-direction:column;
+
+        gap:20px;
+
+        text-align:center;
+
+    }
+
+
+    nav a{
+
+        display:inline-block;
+
+        margin:7px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:38px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="logo">
+
+UniConnect <span>Zambia</span>
+
+</div>
+
+
+<nav>
+
+<a href="Home.html">
+Home
+</a>
+
+<a href="Messages.html">
+Messages
+</a>
+
+<a href="Profile.html">
+Profile
+</a>
+
+<a href="Marketplace.html">
+Marketplace
+</a>
+
+<a href="Notes.html">
+Notes
+</a>
+
+<a href="pastpapers.html"
+   class="active">
+
+Past Papers
+
+</a>
+
+</nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<h1>
+
+Past Papers 📚
+
+</h1>
+
+
+<p>
+
+Find past examination papers
+and study with other students.
+
+</p>
+
+</section>
+
+
+
+<!-- =========================
+     MAIN CONTAINER
+========================= -->
+
+<div class="container">
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div class="card">
+
+<h2 class="section-title">
+
+Find a Past Paper
+
+</h2>
+
+
+<div class="search-area">
+
+
+<input
+id="search"
+type="text"
+placeholder="Search course, university or paper..."
+>
+
+
+<select id="university">
+
+<option value="">
+
+All Universities
+
+</option>
+
+
+<option>
+
+Eden University
+
+</option>
+
+
+<option>
+
+University of Zambia
+
+</option>
+
+
+<option>
+
+Copperbelt University
+
+</option>
+
+
+<option>
+
+Mulungushi University
+
+</option>
+
+
+<option>
+
+Kwame Nkrumah University
+
+</option>
+
+</select>
+
+
+
+<select id="course">
+
+<option value="">
+
+All Courses
+
+</option>
+
+
+<option>
+
+Introduction to Computing
+
+</option>
+
+
+<option>
+
+Programming
+
+</option>
+
+
+<option>
+
+Foundation Mathematics
+
+</option>
+
+
+<option>
+
+Networking
+
+</option>
+
+
+<option>
+
+Web Development
+
+</option>
+
+
+<option>
+
+Database Systems
+
+</option>
+
+</select>
+
+
+
+<select id="year">
+
+<option value="">
+
+All Years
+
+</option>
+
+
+<option>
+
+2026
+
+</option>
+
+
+<option>
+
+2025
+
+</option>
+
+
+<option>
+
+2024
+
+</option>
+
+
+<option>
+
+2023
+
+</option>
+
+
+<option>
+
+2022
+
+</option>
+
+</select>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     AVAILABLE PAPERS
+========================= -->
+
+<h1 class="section-title">
+
+Available Past Papers
+
+</h1>
+
+
+<div class="papers"
+     id="papers">
+
+
+<!-- PAPER 1 -->
+
+<div class="paper-card">
+
+
+<div class="paper-icon">
+
+📄
+
+</div>
+
+
+<h2>
+
+Introduction to Programming
+
+</h2>
+
+
+<p>
+
+📘 <strong>Course:</strong>
+
+Introduction to Programming
+
+</p>
+
+
+<p>
+
+🏫 <strong>University:</strong>
+
+Eden University
+
+</p>
+
+
+<p>
+
+📅 <strong>Year:</strong>
+
+2025
+
+</p>
+
+
+<p>
+
+📚 <strong>Semester:</strong>
+
+First Semester
+
+</p>
+
+
+<div class="paper-actions">
+
+
+<button
+class="view-btn"
+onclick="viewPaper(
+'Introduction to Programming'
+)">
+
+View
+
+</button>
+
+
+<button
+class="download-btn"
+onclick="downloadPaper(
+'Introduction to Programming'
+)">
+
+Download
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- PAPER 2 -->
+
+<div class="paper-card">
+
+
+<div class="paper-icon">
+
+📄
+
+</div>
+
+
+<h2>
+
+Foundation Mathematics
+
+</h2>
+
+
+<p>
+
+📘 <strong>Course:</strong>
+
+Foundation Mathematics
+
+</p>
+
+
+<p>
+
+🏫 <strong>University:</strong>
+
+Eden University
+
+</p>
+
+
+<p>
+
+📅 <strong>Year:</strong>
+
+2025
+
+</p>
+
+
+<p>
+
+📚 <strong>Semester:</strong>
+
+First Semester
+
+</p>
+
+
+<div class="paper-actions">
+
+
+<button
+class="view-btn"
+onclick="viewPaper(
+'Foundation Mathematics'
+)">
+
+View
+
+</button>
+
+
+<button
+class="download-btn"
+onclick="downloadPaper(
+'Foundation Mathematics'
+)">
+
+Download
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- PAPER 3 -->
+
+<div class="paper-card">
+
+
+<div class="paper-icon">
+
+📄
+
+</div>
+
+
+<h2>
+
+Computer Networks
+
+</h2>
+
+
+<p>
+
+📘 <strong>Course:</strong>
+
+Networking
+
+</p>
+
+
+<p>
+
+🏫 <strong>University:</strong>
+
+Copperbelt University
+
+</p>
+
+
+<p>
+
+📅 <strong>Year:</strong>
+
+2024
+
+</p>
+
+
+<p>
+
+📚 <strong>Semester:</strong>
+
+Second Semester
+
+</p>
+
+
+<div class="paper-actions">
+
+
+<button
+class="view-btn"
+onclick="viewPaper(
+'Computer Networks'
+)">
+
+View
+
+</button>
+
+
+<button
+class="download-btn"
+onclick="downloadPaper(
+'Computer Networks'
+)">
+
+Download
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- PAPER 4 -->
+
+<div class="paper-card">
+
+
+<div class="paper-icon">
+
+📄
+
+</div>
+
+
+<h2>
+
+Web Development
+
+</h2>
+
+
+<p>
+
+📘 <strong>Course:</strong>
+
+Web Development
+
+</p>
+
+
+<p>
+
+🏫 <strong>University:</strong>
+
+University of Zambia
+
+</p>
+
+
+<p>
+
+📅 <strong>Year:</strong>
+
+2024
+
+</p>
+
+
+<p>
+
+📚 <strong>Semester:</strong>
+
+First Semester
+
+</p>
+
+
+<div class="paper-actions">
+
+
+<button
+class="view-btn"
+onclick="viewPaper(
+'Web Development'
+)">
+
+View
+
+</button>
+
+
+<button
+class="download-btn"
+onclick="downloadPaper(
+'Web Development'
+)">
+
+Download
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<br>
+
+
+<!-- NO RESULTS -->
+
+<div id="noResults">
+
+<h2>
+
+No Past Papers Found
+
+</h2>
+
+
+<p>
+
+Try searching for another course,
+university or year.
+
+</p>
+
+</div>
+
+
+
+<!-- =========================
+     UPLOAD
+========================= -->
+
+<div class="card">
+
+
+<h2 class="upload-title">
+
+Upload Past Paper 📤
+
+</h2>
+
+
+<p class="upload-description">
+
+Have a past examination paper?
+Share it with other students.
+
+</p>
+
+
+<input
+id="paperTitle"
+placeholder="Past paper title"
+>
+
+
+<select id="paperCourse">
+
+
+<option>
+
+Introduction to Computing
+
+</option>
+
+
+<option>
+
+Programming
+
+</option>
+
+
+<option>
+
+Mathematics
+
+</option>
+
+
+<option>
+
+Networking
+
+</option>
+
+
+<option>
+
+Web Development
+
+</option>
+
+
+</select>
+
+
+<input
+id="paperFile"
+type="file"
+accept=".pdf,.doc,.docx"
+>
+
+
+<button onclick="uploadPaper()">
+
+Upload Past Paper
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<h2>
+
+UniConnect Zambia
+
+</h2>
+
+
+<p>
+
+Connecting Students Across Zambia
+
+</p>
+
+
+<p>
+
+© 2026 UniConnect Zambia
+
+</p>
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================
+   SEARCH + FILTER
+========================= */
+
+
+function filterPapers(){
+
+
+let search =
+
+document
+.getElementById("search")
+.value
+.toLowerCase();
+
+
+let university =
+
+document
+.getElementById("university")
+.value
+.toLowerCase();
+
+
+let course =
+
+document
+.getElementById("course")
+.value
+.toLowerCase();
+
+
+let year =
+
+document
+.getElementById("year")
+.value
+.toLowerCase();
+
+
+let papers =
+
+document
+.querySelectorAll(".paper-card");
+
+
+let found = 0;
+
+
+papers.forEach(function(paper){
+
+
+let text =
+
+paper
+.innerText
+.toLowerCase();
+
+
+let matchesSearch =
+
+text.includes(search);
+
+
+let matchesUniversity =
+
+university === ""
+||
+text.includes(university);
+
+
+let matchesCourse =
+
+course === ""
+||
+text.includes(course);
+
+
+let matchesYear =
+
+year === ""
+||
+text.includes(year);
+
+
+if(
+
+matchesSearch &&
+
+matchesUniversity &&
+
+matchesCourse &&
+
+matchesYear
+
+){
+
+
+paper.style.display =
+"block";
+
+
+found++;
+
+
+}
+
+else{
+
+
+paper.style.display =
+"none";
+
+
+}
+
+
+});
+
+
+let noResults =
+
+document
+.getElementById("noResults");
+
+
+if(found === 0){
+
+noResults.style.display =
+"block";
+
+}
+
+else{
+
+noResults.style.display =
+"none";
+
+}
+
+}
+
+
+/* SEARCH WHILE TYPING */
+
+document
+.getElementById("search")
+.addEventListener(
+"keyup",
+filterPapers
+);
+
+
+/* FILTERS */
+
+document
+.getElementById("university")
+.addEventListener(
+"change",
+filterPapers
+);
+
+
+document
+.getElementById("course")
+.addEventListener(
+"change",
+filterPapers
+);
+
+
+document
+.getElementById("year")
+.addEventListener(
+"change",
+filterPapers
+);
+
+
+/* =========================
+   VIEW PAPER
+========================= */
+
+function viewPaper(name){
+
+alert(
+
+"Opening past paper:\n\n"
++
+name
+
+);
+
+}
+
+
+/* =========================
+   DOWNLOAD PAPER
+========================= */
+
+function downloadPaper(name){
+
+alert(
+
+"Download selected:\n\n"
++
+name
+
+);
+
+}
+
+
+/* =========================
+   UPLOAD PAPER
+========================= */
+
+function uploadPaper(){
+
+
+let title =
+
+document
+.getElementById("paperTitle")
+.value;
+
+
+let file =
+
+document
+.getElementById("paperFile")
+.files[0];
+
+
+if(title === ""){
+
+alert(
+"Please enter the past paper title."
+);
+
+return;
+
+}
+
+
+if(!file){
+
+alert(
+"Please select a past paper file."
+);
+
+return;
+
+}
+
+
+alert(
+
+"Past paper uploaded successfully!\n\n"
++
+title
+
+);
+
+
+/* Clear form */
+
+document
+.getElementById("paperTitle")
+.value = "";
+
+
+document
+.getElementById("paperFile")
+.value = "";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

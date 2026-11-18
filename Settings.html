@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniConnect Zambia | Settings</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+body{
+background:#2b2b2b;
+color:white;
+}
+
+header{
+background:#171717;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid #444;
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+}
+
+.logo span{
+color:#c084fc;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:18px;
+}
+
+nav a:hover{
+color:#c084fc;
+}
+
+.hero{
+text-align:center;
+padding:45px;
+}
+
+.hero h1{
+font-size:45px;
+color:#e9d5ff;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+padding-bottom:40px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+border:1px solid #555;
+border-radius:20px;
+padding:25px;
+margin-bottom:25px;
+backdrop-filter:blur(10px);
+}
+
+.card h2{
+margin-bottom:20px;
+color:#d8b4fe;
+}
+
+label{
+display:block;
+margin-top:15px;
+margin-bottom:6px;
+font-weight:bold;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+background:#333;
+color:white;
+}
+
+textarea{
+height:100px;
+resize:vertical;
+}
+
+.profile{
+display:flex;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.profile img{
+width:130px;
+height:130px;
+border-radius:50%;
+border:4px solid #a855f7;
+object-fit:cover;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.switch{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+background:#333;
+border-radius:12px;
+margin-top:10px;
+}
+
+button{
+margin-top:20px;
+padding:14px 28px;
+border:none;
+border-radius:30px;
+background:#a855f7;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#9333ea;
+}
+
+.danger{
+background:#c62828;
+}
+
+.danger:hover{
+background:#a00000;
+}
+
+footer{
+background:#111;
+text-align:center;
+padding:30px;
+margin-top:30px;
+}
+
+@media(max-width:800px){
+
+.row{
+grid-template-columns:1fr;
+}
+
+.profile{
+flex-direction:column;
+text-align:center;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+UniConnect <span>Zambia</span>
+</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="profile.html">Profile</a>
+<a href="message.html">Messages</a>
+<a href="Logout.html">Logout</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>Settings</h1>
+
+<p>Manage your UniConnect Zambia account.</p>
+
+</section>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Profile</h2>
+
+<div class="profile">
+
+<img id="photo"
+src="https://via.placeholder.com/130">
+
+<div>
+
+<input type="file" id="image">
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div>
+
+<label>Full Name</label>
+
+<input id="name">
+
+</div>
+
+<div>
+
+<label>Email</label>
+
+<input id="email">
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div>
+
+<label>University</label>
+
+<input id="university">
+
+</div>
+
+<div>
+
+<label>Course</label>
+
+<input id="course">
+
+</div>
+
+</div>
+
+<label>Bio</label>
+
+<textarea id="bio"></textarea>
+
+<button onclick="saveProfile()">
+Save Profile
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Preferences</h2>
+
+<div class="switch">
+<span>Dark Theme</span>
+<input type="checkbox" id="theme">
+</div>
+
+<div class="switch">
+<span>Email Notifications</span>
+<input type="checkbox" id="emailNotify" checked>
+</div>
+
+<div class="switch">
+<span>Marketplace Notifications</span>
+<input type="checkbox" id="marketNotify" checked>
+</div>
+
+<div class="switch">
+<span>Chat Notifications</span>
+<input type="checkbox" id="chatNotify" checked>
+</div>
+
+<label>Language</label>
+
+<select id="language">
+
+<option>English</option>
+
+<option>Bemba</option>
+
+<option>Nyanja</option>
+
+<option>Tonga</option>
+
+<option>Lozi</option>
+
+</select>
+
+<button onclick="saveSettings()">
+Save Preferences
+</button>
+
+</div>
+<div class="card">
+
+<h2>Security</h2>
+
+<label>Current Password</label>
+<input type="password" id="currentPassword">
+
+<label>New Password</label>
+<input type="password" id="newPassword">
+
+<label>Confirm New Password</label>
+<input type="password" id="confirmPassword">
+
+<button onclick="changePassword()">
+Change Password
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Privacy</h2>
+
+<div class="switch">
+<span>Private Profile</span>
+<input type="checkbox" id="privateProfile">
+</div>
+
+<div class="switch">
+<span>Show Phone Number</span>
+<input type="checkbox" id="showPhone" checked>
+</div>
+
+<div class="switch">
+<span>Allow Messages From Everyone</span>
+<input type="checkbox" id="allowMessages" checked>
+</div>
+
+<button onclick="savePrivacy()">
+Save Privacy Settings
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Storage</h2>
+
+<p>You can clear all locally saved UniConnect Zambia data from this device.</p>
+
+<button class="danger" onclick="clearData()">
+Clear All Saved Data
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>Account</h2>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</div>
+
+<footer>
+
+<h2>UniConnect Zambia</h2>
+
+<p>Connecting University Students Across Zambia</p>
+
+<p>© 2026 UniConnect Zambia</p>
+
+</footer>
+
+<script>
+
+let profile =
+JSON.parse(localStorage.getItem("profile")) || {};
+
+function loadProfile(){
+
+if(profile.image)
+document.getElementById("photo").src=profile.image;
+
+document.getElementById("name").value=profile.name||"";
+document.getElementById("email").value=profile.email||"";
+document.getElementById("university").value=profile.university||"";
+document.getElementById("course").value=profile.course||"";
+document.getElementById("bio").value=profile.bio||"";
+
+}
+
+loadProfile();
+
+document.getElementById("image").addEventListener("change",function(e){
+
+let reader=new FileReader();
+
+reader.onload=function(){
+
+document.getElementById("photo").src=reader.result;
+
+profile.image=reader.result;
+
+localStorage.setItem("profile",JSON.stringify(profile));
+
+}
+
+reader.readAsDataURL(e.target.files[0]);
+
+});
+
+function saveProfile(){
+
+profile.name=document.getElementById("name").value;
+profile.email=document.getElementById("email").value;
+profile.university=document.getElementById("university").value;
+profile.course=document.getElementById("course").value;
+profile.bio=document.getElementById("bio").value;
+
+localStorage.setItem("profile",JSON.stringify(profile));
+
+alert("Profile saved successfully.");
+
+}
+
+function saveSettings(){
+
+const settings={
+
+theme:document.getElementById("theme").checked,
+emailNotify:document.getElementById("emailNotify").checked,
+marketNotify:document.getElementById("marketNotify").checked,
+chatNotify:document.getElementById("chatNotify").checked,
+language:document.getElementById("language").value
+
+};
+
+localStorage.setItem("settings",JSON.stringify(settings));
+
+if(settings.theme){
+
+document.body.style.background="#181818";
+
+}else{
+
+document.body.style.background="#2b2b2b";
+
+}
+
+alert("Settings saved.");
+
+}
+
+function changePassword(){
+
+let newPass=document.getElementById("newPassword").value;
+
+let confirm=document.getElementById("confirmPassword").value;
+
+if(newPass===""){
+
+alert("Enter a new password.");
+
+return;
+
+}
+
+if(newPass!==confirm){
+
+alert("Passwords do not match.");
+
+return;
+
+}
+
+alert("Password changed successfully.");
+
+}
+
+function savePrivacy(){
+
+const privacy={
+
+privateProfile:document.getElementById("privateProfile").checked,
+showPhone:document.getElementById("showPhone").checked,
+allowMessages:document.getElementById("allowMessages").checked
+
+};
+
+localStorage.setItem("privacy",JSON.stringify(privacy));
+
+alert("Privacy settings saved.");
+
+}
+
+function clearData(){
+
+if(confirm("Delete all saved UniConnect Zambia data from this browser?")){
+
+localStorage.clear();
+
+alert("All saved data has been removed.");
+
+location.reload();
+
+}
+
+}
+
+function logout(){
+
+window.location.href="Logout.html";
+
+}
+
+const savedSettings=
+JSON.parse(localStorage.getItem("settings"));
+
+if(savedSettings){
+
+document.getElementById("theme").checked=savedSettings.theme;
+document.getElementById("emailNotify").checked=savedSettings.emailNotify;
+document.getElementById("marketNotify").checked=savedSettings.marketNotify;
+document.getElementById("chatNotify").checked=savedSettings.chatNotify;
+document.getElementById("language").value=savedSettings.language;
+
+if(savedSettings.theme){
+
+document.body.style.background="#181818";
+
+}
+
+}
+
+const savedPrivacy=
+JSON.parse(localStorage.getItem("privacy"));
+
+if(savedPrivacy){
+
+document.getElementById("privateProfile").checked=savedPrivacy.privateProfile;
+document.getElementById("showPhone").checked=savedPrivacy.showPhone;
+document.getElementById("allowMessages").checked=savedPrivacy.allowMessages;
+
+}
+
+</script>
+
+</body>
+</html>

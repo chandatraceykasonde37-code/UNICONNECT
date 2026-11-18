@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UniConnect Zambia | Dashboard</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Segoe UI",sans-serif;
+}
+
+body{
+background:#2b2b2b;
+color:white;
+}
+
+header{
+background:#171717;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:100;
+border-bottom:1px solid #444;
+}
+
+.logo{
+font-size:32px;
+font-weight:bold;
+}
+
+.logo span{
+color:#c084fc;
+text-shadow:0 0 15px #9333ea;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:500;
+transition:.3s;
+}
+
+nav a:hover{
+color:#c084fc;
+}
+
+.hero{
+padding:50px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.hero-text h1{
+font-size:48px;
+color:#e9d5ff;
+}
+
+.hero-text p{
+margin-top:15px;
+font-size:18px;
+color:#ddd;
+}
+
+.profile-card{
+background:rgba(255,255,255,.08);
+border:1px solid #555;
+padding:25px;
+border-radius:20px;
+text-align:center;
+width:280px;
+backdrop-filter:blur(10px);
+}
+
+.profile-card img{
+width:120px;
+height:120px;
+border-radius:50%;
+border:4px solid #a855f7;
+object-fit:cover;
+}
+
+.profile-card h2{
+margin-top:15px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:20px 8%;
+}
+
+.stat-card{
+background:rgba(255,255,255,.08);
+padding:25px;
+border-radius:20px;
+text-align:center;
+border:1px solid #555;
+transition:.3s;
+cursor:pointer;
+}
+
+.stat-card:hover{
+transform:translateY(-6px);
+border-color:#c084fc;
+box-shadow:0 0 20px rgba(168,85,247,.35);
+}
+
+.stat-card h2{
+font-size:36px;
+color:#c084fc;
+}
+
+.stat-card p{
+margin-top:10px;
+color:#ddd;
+}
+
+.quick-links{
+padding:40px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+}
+
+.link-card{
+background:rgba(255,255,255,.08);
+border:1px solid #555;
+border-radius:20px;
+padding:30px;
+text-align:center;
+transition:.3s;
+cursor:pointer;
+}
+
+.link-card:hover{
+transform:scale(1.04);
+border-color:#c084fc;
+}
+
+.link-card h3{
+color:#e9d5ff;
+margin-bottom:10px;
+}
+
+.link-card p{
+color:#ccc;
+}
+
+footer{
+margin-top:40px;
+background:#111;
+padding:30px;
+text-align:center;
+color:#aaa;
+}
+
+@media(max-width:768px){
+
+.hero{
+flex-direction:column;
+gap:30px;
+}
+
+.profile-card{
+width:100%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+UniConnect <span>Zambia</span>
+</div>
+
+<nav>
+
+<a href="Home.html">Home</a>
+
+<a href="Profile.html">Profile</a>
+
+<a href="Messages.html">Messages</a>
+
+<a href="Settings.html">Settings</a>
+
+<a href="Logout.html">Logout</a>
+<a href="Jobs.html">Jobs</a>
+<a href="Notification.html">Notification</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-text">
+
+<h1>
+Welcome Back!
+</h1>
+
+<p>
+Connect • Apply • Share • Learn • Explore
+</p>
+
+</div>
+
+<div class="profile-card">
+
+<img id="profilePic" src="https://via.placeholder.com/120">
+
+<h2 id="studentName">
+Student Name
+</h2>
+
+<p id="studentUniversity">
+University
+</p>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="stat-card">
+<h2 id="messagesCount">0</h2>
+<p>Messages</p>
+</div>
+
+<div class="stat-card">
+<h2 id="savedCount">0</h2>
+<p>Saved Houses</p>
+</div>
+
+<div class="stat-card">
+<h2 id="bookingCount">0</h2>
+<p>Bookings</p>
+</div>
+
+<div class="stat-card">
+<h2 id="listingCount">0</h2>
+<p>Marketplace Listings</p>
+</div>
+
+</section>
+
+<section class="quick-links">
+    <div class="link-card" onclick="goTo('universities.html')">
+<h3>🏫 Universities</h3>
+<p>Browse universities, application deadlines and apply online.</p>
+</div>
+
+<div class="link-card" onclick="goTo('boarding.html')">
+<h3>🏠 Boarding Houses</h3>
+<p>Find verified boarding houses near your university.</p>
+</div>
+
+<div class="link-card" onclick="goTo('marketplace.html')">
+<h3>🛒 Marketplace</h3>
+<p>Buy and sell laptops, phones, books and more.</p>
+</div>
+
+<div class="link-card" onclick="goTo('Notes.html')">
+<h3>📚 Notes</h3>
+<p>Share lecture notes, assignments and study material.</p>
+</div>
+
+<div class="link-card" onclick="goTo('message.html')">
+<h3>💬 Messages</h3>
+<p>Chat privately with students and boarding houses.</p>
+</div>
+
+<div class="link-card" onclick="goTo('Saved Houses.html')">
+<h3>❤️ Saved Houses</h3>
+<p>View your favourite boarding houses.</p>
+</div>
+
+<div class="link-card" onclick="goTo('booking.html')">
+<h3>📅 My Bookings</h3>
+<p>Track your boarding house viewing requests.</p>
+</div>
+
+<div class="link-card" onclick="goTo('profile.html')">
+<h3>👤 My Profile</h3>
+<p>View and edit your UniConnect profile.</p>
+</div>
+
+<div class="link-card" onclick="goTo('settings.html')">
+<h3>⚙️ Settings</h3>
+<p>Manage your account and preferences.</p>
+</div>
+
+<div class="link-card" onclick="goTo('Logout.html')">
+<h3>🚪 Logout</h3>
+<p>Sign out of your UniConnect account.</p>
+</div>
+<div class="link-card" onclick="goTo('jobs.html')">
+    <h3>💼 Jobs</h3>
+    <p>Find internships, part-time jobs, graduate programmes, and career opportunities.</p>
+</div>
+<div class="link-card" onclick="goTo('Notification.html')">
+    <h3>🔔 Notifications</h3>
+    <p> Check your notifications</p>
+    
+    
+</div>
+
+</section>
+
+<section style="padding:40px 8%;">
+
+<div style="
+background:rgba(255,255,255,.08);
+border:1px solid #555;
+border-radius:20px;
+padding:30px;
+">
+
+<h2 style="color:#d8b4fe;margin-bottom:20px;">
+📢 Recent Activity
+</h2>
+
+<ul id="activityList" style="line-height:2;">
+<li>Welcome to UniConnect Zambia.</li>
+<li>Your latest activities will appear here.</li>
+</ul>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>UniConnect Zambia</h2>
+
+<p>Connecting University Students Across Zambia</p>
+
+<p>© 2026 UniConnect Zambia</p>
+
+</footer>
+
+<script>
+
+function goTo(page){
+
+window.location.href = page;
+
+}
+
+let profile =
+JSON.parse(localStorage.getItem("profile")) || {};
+
+if(profile.name){
+
+document.getElementById("studentName").innerHTML = profile.name;
+
+}
+
+if(profile.university){
+
+document.getElementById("studentUniversity").innerHTML = profile.university;
+
+}
+
+if(profile.image){
+
+document.getElementById("profilePic").src = profile.image;
+
+}
+
+let bookings =
+JSON.parse(localStorage.getItem("bookings")) || [];
+
+document.getElementById("bookingCount").innerHTML = bookings.length;
+
+let saved =
+JSON.parse(localStorage.getItem("savedHouses")) || [];
+
+document.getElementById("savedCount").innerHTML = saved.length;
+
+let notes =
+JSON.parse(localStorage.getItem("notes")) || [];
+
+document.getElementById("messagesCount").innerHTML = notes.length;
+
+let products =
+JSON.parse(localStorage.getItem("approvedProducts")) || [];
+
+document.getElementById("listingCount").innerHTML = products.length;
+
+</script>
+
+</body>
+</html>
